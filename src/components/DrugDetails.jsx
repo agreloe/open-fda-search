@@ -12,6 +12,7 @@ import {
   Box,
   Chip,
   Skeleton,
+  Divider
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { searchDrugDetails } from "../api/actions";
@@ -159,7 +160,7 @@ function DrugDetails() {
                     <List>
                       {result.products.map((product, index) => (
                         <ListItem
-                          divider={result.products.length > 1 ? true : false}
+                          divider={index < result.products.length - 1 ? true : false}
                           disableGutters
                           key={index}
                           sx={{ width: "100%" }}
@@ -201,6 +202,7 @@ function DrugDetails() {
         <Card>
           <CardContent>
             {result.products.map((product, index) => (
+              <Fragment>
               <Grid
                 key={index}
                 container
@@ -253,7 +255,7 @@ function DrugDetails() {
                           disableGutters
                           disablePadding
                           divider={
-                            product.active_ingredients.length > 1 ? true : false
+                            ingIndex < product.active_ingredients.length - 1 ? true : false
                           }
                         >
                           <ListItemText
@@ -268,6 +270,11 @@ function DrugDetails() {
                   )}
                 </Grid>
               </Grid>
+              {
+                index < result.products.length - 1 ?
+                <Divider variant="fullWidth" sx={{margin: "1rem 0"}} /> : null
+              }
+            </Fragment>
             ))}
           </CardContent>
         </Card>
