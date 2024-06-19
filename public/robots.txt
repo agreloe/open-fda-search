@@ -1,3 +1,15 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /private/
+Disallow: /tmp/
+
+User-agent: Googlebot
+Allow: /
+Disallow: /no-google/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /no-bing/
+
+Sitemap: https://localhost:3000/sitemap.xml
+
+Crawl-delay: 10
