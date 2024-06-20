@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 
 export const ThemedTypography = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== "dark",
+  shouldForwardProp: (prop) => prop !== "light",
 })(({ theme, light }) => ({
   fontFamily: '"Manrope", sans-serif',
   color: light ? theme.palette.text.lightColor : theme.palette.text.primary,
